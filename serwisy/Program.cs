@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using serwisy.Data;
+using serwisy.Interfaces;
+using serwisy.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<PeopleContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("serwisyDB")));
+builder.Services.AddTransient<IPersonService, PersonServiceHistory>();
 
 var app = builder.Build();
 

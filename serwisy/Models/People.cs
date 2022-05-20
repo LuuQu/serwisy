@@ -13,6 +13,8 @@ namespace serwisy.Models
         [Required]
         [MaxLength(100)]
         public string LastName { get; set; }
-        public DateTime Date { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string Date { get; set; }
     }
 }

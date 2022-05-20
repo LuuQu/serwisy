@@ -1,0 +1,43 @@
+﻿@page
+@model HistoryModel
+@{
+    ViewData["Title"] = "Historia";
+}
+<h1>@ViewData["Title"]</h1>
+<p>Historia wpisów w bazie danych:</p>
+<div class="data_display">
+ <div>
+<p>Nr ID</p>
+</div>
+<div>
+<p>Imie</p>
+</div>
+<div>
+<p>Nazwisko</p>
+</div>
+<div>
+<p>Data</p>
+</div>
+    </div>
+<div class="data_display">
+<div>
+@foreach (var item in Model.Records) {
+<p>@item.Id</p>
+}
+</div>
+<div>
+@foreach (var item in Model.Records) {
+<p>@item.FirstName</p>
+}
+</div>
+<div>
+@foreach (var item in Model.Records) {
+<p>@item.LastName</p>
+}
+</div>
+<div>
+@foreach (var item in Model.Records) {
+<p>@item.Date</p>
+}
+</div>
+</div>

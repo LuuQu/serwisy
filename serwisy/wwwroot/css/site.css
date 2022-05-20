@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+.data_display {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 2px;
+    padding: 2px;
+}
+.form_display {
+    width: 400px;
+}
