@@ -4,8 +4,9 @@ namespace serwisy.Interfaces
 {
     public interface IPersonService
     {
-        public IQueryable<People> GetActivePeople();
-        public IQueryable<People> GetAllPeople();
+        public IQueryable<People> GetEntriesFromToday();
+        public IQueryable<People> GetAllEntries();
+        public void AddEntry(string name, string lastName);
 
     }
 }

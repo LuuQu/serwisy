@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
 using serwisy.Interfaces;
 using serwisy.Models;
 
@@ -19,22 +18,12 @@ namespace serwisy.Pages
 
         public void OnGet()
         {
-            Records = _personService.GetActivePeople();
+            Records = _personService.GetEntriesFromToday();
         }
         public IActionResult OnPost()
         {
-            string name = Request.Form["Name"];
-            string lastName = Request.Form["LastName"];
-            DateTime actualdata = DateTime.Now;
-            string tmp = actualdata.ToString("MM/dd/yyyy");
-            string sqlQuery = "INSERT INTO People(FirstName,LastName,Date) VALUES('" + name + "', '" + lastName + "', '" + tmp + "')";
-            string sqlLink = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=serwisyDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            SqlConnection con = new SqlConnection(sqlLink);
-            con.Open();
-            SqlCommand sc = new SqlCommand(sqlQuery, con);
-            sc.ExecuteNonQuery();
-            con.Close();
-            Records = _personService.GetActivePeople();
+            _personService.AddEntry(Request.Form["Name"], Request.Form["LastName"]);
+            Records = _personService.GetEntriesFromToday();
             return Page();
         }
     }

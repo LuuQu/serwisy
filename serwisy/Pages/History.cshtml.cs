@@ -19,7 +19,7 @@ namespace serwisy.Pages
 
         public void OnGet()
         {
-            Records = _personService.GetAllPeople();
+            Records = _personService.GetAllEntries();
         }
     }
 }

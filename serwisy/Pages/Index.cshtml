@@ -24,10 +24,7 @@
             <p>Nr ID</p>
         </div>
         <div>
-            <p>Imie</p>
-        </div>
-        <div>
-            <p>Nazwisko</p>
+            <p>Imie i Nazwisko</p>
         </div>
     </div>
     <div class="data_display">
@@ -38,12 +35,7 @@
         </div>
         <div>
         @foreach (var item in Model.Records) {
-        <p>@item.FirstName</p>
-        }
-        </div>
-        <div>
-        @foreach (var item in Model.Records) {
-        <p>@item.LastName</p>
+        <p>@item.FirstName @item.LastName</p>
         }
         </div>
     </div>
